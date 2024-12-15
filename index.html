@@ -143,7 +143,7 @@
         /* Error Message */
         .error-message {
             display: none;
-            margin-top: 10px;
+            margin-bottom: 10px;
             color: red;
             font-size: 1rem;
             font-weight: bold;
@@ -190,6 +190,9 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
 
+            <!-- Error Message Above Forgot Password -->
+            <div class="error-message" id="error-message">Error: Invalid credentials!</div>
+
             <!-- Forgot Password -->
             <div class="forgot-password">
                 <a href="#">Forgot password?</a>
@@ -206,9 +209,6 @@
                 <button type="button" id="sign-in-btn">Sign in</button>
                 <div class="spinner" id="spinner"></div>
             </div>
-
-            <!-- Error Message Below Forgot Password -->
-            <div class="error-message" id="error-message">Error: Invalid credentials!</div>
         </form>
 
         <!-- Footer -->
@@ -230,13 +230,16 @@
             spinner.style.display = "block";
             button.style.color = "transparent"; // Hide button text
 
+            // Hide the error message if visible
+            errorMessage.style.display = "none";
+
             // Simulate API delay
             setTimeout(() => {
                 // Hide spinner and restore button text
                 spinner.style.display = "none";
                 button.style.color = "#fff";
 
-                // Show error message below Forgot Password
+                // Show error message above Forgot Password
                 errorMessage.style.display = "block";
             }, 2000);
         });
