@@ -23,15 +23,18 @@
             position: relative;
         }
 
+        /* Container for centering the form */
         .container {
             max-width: 400px;
             width: 100%;
             text-align: center;
         }
 
+        /* Logo at the top-left */
         .logo {
-            text-align: left;
-            margin-bottom: 30px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
 
         .logo img {
@@ -164,13 +167,13 @@
     </style>
 </head>
 <body>
+    <!-- Logo -->
+    <div class="logo">
+        <img src="https://via.placeholder.com/30" alt="Logo">
+    </div>
+
     <!-- Container -->
     <div class="container">
-        <!-- Logo -->
-        <div class="logo">
-            <img src="https://via.placeholder.com/30" alt="Logo">
-        </div>
-
         <!-- Sign In Title -->
         <h1>Sign in</h1>
 
