@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 24px;
+            height: 24px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: #000;
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        .captcha {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .captcha iframe {
+            display: inline-block;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ccc;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .top-bar {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .top-bar a {
+            font-size: 0.9rem;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .top-bar .create-account {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <span>Don't have a Gemini account? </span>
+            <a href="#" class="create-account">Create a new account</a>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="https://via.placeholder.com/24" alt="Logo">
+        </div>
+
+        <!-- Sign In Form -->
+        <h1>Sign in</h1>
+        <form>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="">
+
+            <div class="remember">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember my email address</label>
+            </div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="">
+
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <!-- CAPTCHA Placeholder -->
+            <div class="captcha">
+                <input type="checkbox" id="captcha">
+                <label for="captcha">I'm not a robot</label>
+            </div>
+
+            <!-- Sign In Button -->
+            <button type="button" disabled>Sign in</button>
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            Trust is Our Product™<br>
+            For trademarks and patents, please see our <a href="#">Legal Notice</a>.
+        </div>
+    </div>
+</body>
+</html>
