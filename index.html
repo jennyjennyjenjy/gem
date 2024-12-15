@@ -20,13 +20,13 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
 
         .container {
             max-width: 400px;
             width: 100%;
             text-align: center;
-            padding: 20px;
         }
 
         .logo {
@@ -35,31 +35,33 @@
         }
 
         .logo img {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            text-align: left;
             font-weight: bold;
         }
 
         label {
             display: block;
             text-align: left;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-size: 1rem;
             color: #333;
         }
 
         input[type="email"],
         input[type="password"] {
             width: 100%;
+            height: 48px;
             padding: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
         }
 
@@ -69,6 +71,7 @@
             gap: 5px;
             margin-bottom: 15px;
             font-size: 0.9rem;
+            text-align: left;
         }
 
         .forgot-password {
@@ -82,24 +85,29 @@
             text-decoration: underline;
         }
 
+        /* reCAPTCHA Box */
         .captcha {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
             margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .captcha input[type="checkbox"] {
-            margin-right: 5px;
+            height: 70px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding-left: 10px;
+            background-color: #f9f9f9;
         }
 
         button {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             font-size: 1rem;
             color: #fff;
             background-color: #ccc;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: not-allowed;
+            font-weight: bold;
         }
 
         .footer {
@@ -133,7 +141,6 @@
             padding: 5px 10px;
             border-radius: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -146,28 +153,32 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <img src="https://via.placeholder.com/24" alt="Logo">
+            <img src="https://via.placeholder.com/30" alt="Logo">
         </div>
 
         <!-- Sign In Form -->
         <h1>Sign in</h1>
         <form>
+            <!-- Email -->
             <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="">
+            <input type="email" id="email" name="email">
 
+            <!-- Remember -->
             <div class="remember">
                 <input type="checkbox" id="remember">
                 <label for="remember">Remember my email address</label>
             </div>
 
+            <!-- Password -->
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="">
+            <input type="password" id="password" name="password">
 
+            <!-- Forgot Password -->
             <div class="forgot-password">
                 <a href="#">Forgot password?</a>
             </div>
 
-            <!-- CAPTCHA Placeholder -->
+            <!-- reCAPTCHA -->
             <div class="captcha">
                 <input type="checkbox" id="captcha">
                 <label for="captcha">I'm not a robot</label>
