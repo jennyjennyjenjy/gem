@@ -87,8 +87,8 @@
             text-align: left;
         }
 
-        .captcha iframe {
-            display: inline-block;
+        .captcha input[type="checkbox"] {
+            margin-right: 5px;
         }
 
         button {
@@ -114,34 +114,36 @@
             text-decoration: underline;
         }
 
+        /* Top Bar - Positioned at the very top right */
         .top-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9rem;
             text-align: right;
-            margin-bottom: 20px;
         }
 
         .top-bar a {
-            font-size: 0.9rem;
             color: #000;
             text-decoration: none;
-        }
-
-        .top-bar .create-account {
+            margin-left: 5px;
+            font-weight: bold;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             padding: 5px 10px;
             border-radius: 5px;
-            font-weight: bold;
         }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <span>Don't have a Gemini account? </span>
-            <a href="#" class="create-account">Create a new account</a>
-        </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span>Don't have a Gemini account?</span>
+        <a href="#" class="create-account">Create a new account</a>
+    </div>
 
+    <div class="container">
         <!-- Logo -->
         <div class="logo">
             <img src="https://via.placeholder.com/24" alt="Logo">
