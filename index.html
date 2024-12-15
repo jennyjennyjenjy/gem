@@ -98,27 +98,48 @@
             background-color: #f9f9f9;
         }
 
-        /* Updated Button Styles */
+        /* Sign In Button */
         button {
             width: 100%;
             padding: 15px;
             font-size: 1rem;
-            color: #fff; /* White text */
-            background-color: #000; /* Black background */
+            color: #fff;
+            background-color: #000;
             border: none;
-            border-radius: 50px; /* Fully rounded corners */
+            border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #333; /* Slightly lighter black on hover */
+            background-color: #333;
         }
 
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            margin: 20px auto;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #000;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            margin-top: 20px;
+            color: red;
+            font-size: 1rem;
+            font-weight: bold;
         }
 
         .footer {
@@ -132,55 +153,32 @@
             color: #000;
             text-decoration: underline;
         }
-
-        /* Top Bar - Positioned at the very top right */
-        .top-bar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 0.9rem;
-            text-align: right;
-        }
-
-        .top-bar a {
-            color: #000;
-            text-decoration: none;
-            margin-left: 5px;
-            font-weight: bold;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <span>Don't have a Gemini account?</span>
-        <a href="#" class="create-account">Create a new account</a>
-    </div>
-
+    <!-- Container -->
     <div class="container">
         <!-- Logo -->
         <div class="logo">
             <img src="https://via.placeholder.com/30" alt="Logo">
         </div>
 
-        <!-- Sign In Form -->
+        <!-- Sign In Title -->
         <h1>Sign in</h1>
-        <form>
-            <!-- Email -->
+
+        <!-- Sign In Form -->
+        <form id="signin-form">
+            <!-- Email Input -->
             <label for="email">Email address</label>
             <input type="email" id="email" name="email">
 
-            <!-- Remember -->
+            <!-- Remember Email -->
             <div class="remember">
                 <input type="checkbox" id="remember">
                 <label for="remember">Remember my email address</label>
             </div>
 
-            <!-- Password -->
+            <!-- Password Input -->
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
 
@@ -196,7 +194,13 @@
             </div>
 
             <!-- Sign In Button -->
-            <button type="button">Sign in</button>
+            <button type="button" id="sign-in-btn">Sign in</button>
+
+            <!-- Loading Spinner -->
+            <div class="spinner" id="spinner"></div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="error-message">Error: Invalid credentials!</div>
         </form>
 
         <!-- Footer -->
@@ -205,5 +209,24 @@
             For trademarks and patents, please see our <a href="#">Legal Notice</a>.
         </div>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("sign-in-btn").addEventListener("click", function() {
+            // Get spinner and error message elements
+            const spinner = document.getElementById("spinner");
+            const errorMessage = document.getElementById("error-message");
+
+            // Show spinner and hide error initially
+            spinner.style.display = "block";
+            errorMessage.style.display = "none";
+
+            // Simulate an API delay (e.g., 2 seconds)
+            setTimeout(() => {
+                spinner.style.display = "none"; // Hide spinner
+                errorMessage.style.display = "block"; // Show error message
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
